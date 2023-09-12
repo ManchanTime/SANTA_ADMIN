@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    tools:context=".activity.Pictures">
+
+    <Button
+        android:id="@+id/LMTbutton"
+        android:layout_width="163dp"
+        android:layout_height="55dp"
+        android:text="LMT" />
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="20dp" />
+
+    <Button
+        android:id="@+id/PITRbutton"
+        android:layout_width="163dp"
+        android:layout_height="55dp"
+        android:text="PITR" />
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="20dp" />
+
+    <Button
+        android:id="@+id/KHTPbutton"
+        android:layout_width="163dp"
+        android:layout_height="55dp"
+        android:text="K-HTP"/>
+
+</LinearLayout>

@@ -38,12 +38,14 @@ public class LoginActivity extends AppCompatActivity {
     View.OnClickListener onClickListener = (v) -> {
         Intent intent;
         switch (v.getId()){
-            case R.id.btn_login:
-                validate();
-                break;
             case R.id.btn_register:
                 intent = new Intent(this, RegisterActivity.class);
                 startActivity(intent);
+                break;
+            case R.id.btn_login:
+                intent = new Intent(this, MemberList.class);
+                startActivity(intent);
+                //validate(); 나중에 DB에 관해서 질문하기
                 break;
         }
     };
@@ -52,13 +54,13 @@ public class LoginActivity extends AppCompatActivity {
         String email = etId.getText().toString() + "@santa.com";
         String pwd = etPwd.getText().toString();
 
-        FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
-        firebaseAuth.signInWithEmailAndPassword(email, pwd)
+        FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();//데이터베이스의 인스턴스를 가져온다. (즉, root를 가져온다.)
+        firebaseAuth.signInWithEmailAndPassword(email, pwd)//메일이랑 패스워드를 참조
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
-                            Intent intent = new Intent(LoginActivity.this, IntroActivity.class);
+                            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                             startActivity(intent);
                             Toast.makeText(LoginActivity.this, "환영합니다!!", Toast.LENGTH_SHORT).show();
                             finish();
