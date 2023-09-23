@@ -9,20 +9,38 @@
     tools:context=".activity.KHTP">
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/textView_KHTP"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="KHTP 페이지 입니다."
         tools:layout_editor_absoluteX="143dp"
         tools:layout_editor_absoluteY="291dp" />
 
+    <ImageView
+        android:id="@+id/imageView_K"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:src="@drawable/android1"
+        android:scaleType="fitCenter" />
 
+    <EditText
+        android:id="@+id/Result_K"
+        android:layout_width="200dp"
+        android:layout_height="200dp"/>
     <Button
-        android:id="@+id/Resultbutton"
+        android:id="@+id/Resultbutton_K"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="결과 보내기"
         tools:layout_editor_absoluteX="158dp"
         tools:layout_editor_absoluteY="418dp" />
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabButton_K"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end|bottom"
+        android:layout_margin="16dp"
+        android:src="@drawable/ic_add"
+        />
 
 </LinearLayout>

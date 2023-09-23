@@ -18,7 +18,7 @@
         android:layout_marginLeft="10dp">
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/text_info1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="이름"
@@ -26,14 +26,21 @@
 <!--            android:textColor="@color/colorPrimaryDark"-->
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/text_info2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="전화번호"
+            android:text="성별"
             android:textSize="24sp"
             android:textColor="@android:color/holo_orange_dark"/>
-
+        <TextView
+            android:id="@+id/text_info3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="나이"
+            android:textSize="24sp"
+            android:textColor="@android:color/holo_blue_dark"/>
     </LinearLayout>
 
 </LinearLayout>

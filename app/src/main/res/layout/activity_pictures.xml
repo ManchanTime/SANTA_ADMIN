@@ -9,6 +9,15 @@
     tools:context=".activity.Pictures">
 
     <Button
+        android:id="@+id/FIGUREbutton"
+        android:layout_width="163dp"
+        android:layout_height="55dp"
+        android:text="FIGURE" />
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="20dp" />
+
+    <Button
         android:id="@+id/LMTbutton"
         android:layout_width="163dp"
         android:layout_height="55dp"

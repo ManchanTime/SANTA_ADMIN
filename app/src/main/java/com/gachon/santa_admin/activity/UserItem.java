@@ -5,13 +5,37 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class UserItem  {
     String name;
-    String mobile;
-    int resId;
+    String uid;
+    String sex;
+    String age;
 
-    public UserItem(String name, String mobile, int resId) {
+    public UserItem(String name, String sex, String age) {
         this.name = name;
-        this.mobile = mobile;
-        this.resId = resId;
+        this.sex = sex;
+        this.age = age;
+    }
+
+    public UserItem(String name, String age, String sex, String uid) {
+        this.name = name;
+        this.uid = uid;
+        this.sex = sex;
+        this.age = age;
+    }
+
+    public String getSex() {
+        return sex;
+    }
+
+    public void setSex(String sex) {
+        this.sex = sex;
+    }
+
+    public String getAge() {
+        return age;
+    }
+
+    public void setAge(String age) {
+        this.age = age;
     }
 
     public String getName() {
@@ -22,26 +46,20 @@ public class UserItem  {
         this.name = name;
     }
 
-    public String getMobile() {
-        return mobile;
+    public String getUid() {
+        return uid;
     }
 
-    public void setMobile(String mobile) {
-        this.mobile = mobile;
+    public void setUid(String uid) {
+        this.uid = uid;
     }
 
-    public int getResId() {
-        return resId;
-    }
-
-    public void setResId(int resId) {
-        this.resId = resId;
-    }
     @Override
     public String toString() {
         return "SingerItem{" +
                 "name='" + name + '\'' +
-                ", mobile='" + mobile + '\'' +
+                ", age='" + age + '\'' +
+                ", sex='" + sex + '\'' +
                 '}';
     }
 }

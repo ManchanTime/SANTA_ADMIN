@@ -76,6 +76,7 @@ public class RegisterActivity extends AppCompatActivity {
         String chk = etPwdCh.getText().toString();
         String age = etAge.getText().toString();
         String address = etAddress.getText().toString();
+        String type = "admin";
         if(!pwd.equals(chk)){
             Toast.makeText(this, "비밀번호가 일치하지 않습니다.", Toast.LENGTH_SHORT).show();
             return;
@@ -89,7 +90,7 @@ public class RegisterActivity extends AppCompatActivity {
                             FirebaseUser user = firebaseAuth.getCurrentUser();
                             assert user != null;
                             Intent intent = new Intent(getApplicationContext(), IntroActivity.class);
-                            Member member = new Member(user.getUid(), name, age, sex, address, "admin");
+                            Member member = new Member(user.getUid(), name, age, sex, address, type);
                             FirebaseFirestore firestore = FirebaseFirestore.getInstance();
                             firestore.collection("users").document(user.getUid())
                                     .set(member)
@@ -103,7 +104,7 @@ public class RegisterActivity extends AppCompatActivity {
                                     });
                         }
                         else{
-                            Log.e("error","error");
+                            Log.e("error",task.getException().toString());
                         }
                     }
                 });

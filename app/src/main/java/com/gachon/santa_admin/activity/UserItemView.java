@@ -15,8 +15,9 @@ import com.gachon.santa_admin.R;
 
 public class UserItemView extends LinearLayout {
 
-    TextView textView;
-    TextView textView2;
+    TextView text_info1;
+    TextView text_info2;
+    TextView text_info3;
     ImageView imageView;
 
     // Generate > Constructor
@@ -38,19 +39,23 @@ public class UserItemView extends LinearLayout {
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         inflater.inflate(R.layout.activity_user_item, this, true);
 
-        textView = (TextView) findViewById(R.id.textView);
-        textView2 = (TextView) findViewById(R.id.textView2);
+        text_info1 = (TextView) findViewById(R.id.text_info1);
+        text_info2 = (TextView) findViewById(R.id.text_info2);
+        text_info3 = (TextView) findViewById(R.id.text_info3);
         imageView = (ImageView) findViewById(R.id.imageView);
     }
 
     public void setName(String name) {
-        textView.setText(name);
+        text_info1.setText(name);
     }
 
-    public void setMobile(String mobile) {
-        textView2.setText(mobile);
+    public void setAge(String age) {
+        text_info2.setText(age);
     }
 
+    public void setSex(String sex){
+        text_info3.setText(sex);
+    }
     public void setImage(int resId) {
         imageView.setImageResource(resId);
     }

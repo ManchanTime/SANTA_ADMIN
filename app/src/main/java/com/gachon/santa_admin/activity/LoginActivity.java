@@ -43,9 +43,9 @@ public class LoginActivity extends AppCompatActivity {
                 startActivity(intent);
                 break;
             case R.id.btn_login:
-                intent = new Intent(this, MemberList.class);
-                startActivity(intent);
-                //validate(); 나중에 DB에 관해서 질문하기
+//                intent = new Intent(this, MemberList.class);
+//                startActivity(intent);
+                validate();
                 break;
         }
     };
@@ -60,7 +60,7 @@ public class LoginActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
-                            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                            Intent intent = new Intent(LoginActivity.this, MemberList.class);
                             startActivity(intent);
                             Toast.makeText(LoginActivity.this, "환영합니다!!", Toast.LENGTH_SHORT).show();
                             finish();

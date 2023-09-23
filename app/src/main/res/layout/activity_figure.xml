@@ -6,40 +6,42 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    tools:context=".activity.LMT">
+    tools:context=".activity.FIGURE">
 
     <TextView
-        android:id="@+id/textView_LMT"
+        android:id="@+id/textView_FIGURE"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="LMT 페이지 입니다."
+        android:text="FIGURE 페이지 입니다."
         tools:layout_editor_absoluteX="176dp"
         tools:layout_editor_absoluteY="344dp" />
 
     <ImageView
-        android:id="@+id/imageView_L"
+        android:id="@+id/imageView_F"
         android:layout_width="200dp"
         android:layout_height="200dp"
         android:src="@drawable/android1"
         android:scaleType="fitCenter" />
 
     <EditText
-        android:id="@+id/Result_L"
+        android:id="@+id/Result_F"
         android:layout_width="200dp"
         android:layout_height="200dp"/>
     <Button
-        android:id="@+id/Resultbutton_L"
+        android:id="@+id/Resultbutton_F"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="결과 보내기"
         tools:layout_editor_absoluteX="158dp"
         tools:layout_editor_absoluteY="418dp" />
+
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fabButton_L"
+        android:id="@+id/fabButton_F"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="end|bottom"
         android:layout_margin="16dp"
         android:src="@drawable/ic_add"
         />
+
 </LinearLayout>
