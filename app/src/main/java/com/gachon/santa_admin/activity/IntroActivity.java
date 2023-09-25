@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 
 import com.gachon.santa_admin.R;
+import com.gachon.santa_admin.entity.UserItem;
 
 import java.util.Locale;
 
@@ -24,7 +25,6 @@ public class IntroActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_intro);
 
-        text = "SANTA관리자님 어서오세요.";
         btnNext = findViewById(R.id.btn_next);
         btnNext.setOnClickListener(onClickListener);
         tts = new TextToSpeech(this, new TextToSpeech.OnInitListener() {
@@ -43,7 +43,7 @@ public class IntroActivity extends AppCompatActivity {
     View.OnClickListener onClickListener = (v) -> {
         switch(v.getId()){
             case R.id.btn_next:
-                Intent intent = new Intent(this, LoginActivity.class);
+                Intent intent = new Intent(this, MemberListActivity.class);
                 startActivity(intent);
                 finish();
                 break;

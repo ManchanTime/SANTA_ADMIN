@@ -1,4 +1,4 @@
-package com.gachon.santa_admin.activity;
+package com.gachon.santa_admin.entity;
 
 import androidx.appcompat.app.AppCompatActivity;
 

@@ -1,4 +1,4 @@
-package com.gachon.santa_admin.activity;
+package com.gachon.santa_admin.util;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;

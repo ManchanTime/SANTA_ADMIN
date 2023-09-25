@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    tools:context=".activity.Pictures">
+    tools:context=".activity.PicturesActivity">
 
     <Button
         android:id="@+id/FIGUREbutton"
