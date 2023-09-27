@@ -71,40 +71,4 @@ public class GridViewAdapter extends BaseAdapter {
         return imageView;
     }
 
-        //각 아이템 선택 event
-//        convertView.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                switch (type) {
-//                    case "figure":
-//                        // type이 1인 경우, 다른 페이지로 이동합니다.
-//                        Intent intent1 = new Intent(context, FigureActivity.class);
-//                        // 필요한 데이터를 인텐트에 추가할 수 있습니다.
-//                        intent1.putExtra("date", bearItem.getDate());
-//                        context.startActivity(intent1);
-//                        break;
-//                    case "htp":
-//                        // type이 1인 경우, 다른 페이지로 이동합니다.
-//                        Intent intent2 = new Intent(context, KhtpActivity.class);
-//                        // 필요한 데이터를 인텐트에 추가할 수 있습니다.
-//                        intent2.putExtra("date", bearItem.getDate());
-//                        context.startActivity(intent2);
-//                        break;
-//                    case "lmt":
-//                        // type이 1인 경우, 다른 페이지로 이동합니다.
-//                        Intent intent3 = new Intent(context, LmtActivity.class);
-//                        // 필요한 데이터를 인텐트에 추가할 수 있습니다.
-//                        intent3.putExtra("date", bearItem.getDate());
-//                        context.startActivity(intent3);
-//                        break;
-//                    case "pitr":
-//                        // type이 1인 경우, 다른 페이지로 이동합니다.
-//                        Intent intent4 = new Intent(context, PitrActivity.class);
-//                        // 필요한 데이터를 인텐트에 추가할 수 있습니다.
-//                        intent4.putExtra("date", bearItem.getDate());
-//                        context.startActivity(intent4);
-//                        break;
-//                }
-//            }
-//        });
 }

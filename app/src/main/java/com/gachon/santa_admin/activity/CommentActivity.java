@@ -1,6 +1,9 @@
 package com.gachon.santa_admin.activity;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.graphics.Color;
@@ -16,17 +19,26 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.gachon.santa_admin.R;
+import com.gachon.santa_admin.adapter.CommentAdapter;
 import com.gachon.santa_admin.dialog.ProgressDialog;
 import com.gachon.santa_admin.entity.Comment;
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import org.checkerframework.checker.units.qual.C;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class CommentActivity extends AppCompatActivity {
 
@@ -35,8 +47,14 @@ public class CommentActivity extends AppCompatActivity {
     private Button btnSend;
     private String target, type, url, postId;
     private TextView textType;
+
+    private RecyclerView recyclerView;
+    private CommentAdapter commentAdapter;
+    private ArrayList<Comment> commentList = new ArrayList<>();
     //골뱅이 돌리기
     private ProgressDialog customProgressDialog;
+
+    private FirebaseFirestore firestore;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,7 +64,7 @@ public class CommentActivity extends AppCompatActivity {
         //로딩창 객체 생성
         customProgressDialog = new ProgressDialog(this);
         customProgressDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-
+        firestore = FirebaseFirestore.getInstance();
 
         imagePicture = findViewById(R.id.image_picture);
         editComment = findViewById(R.id.edit_comment);
@@ -61,6 +79,14 @@ public class CommentActivity extends AppCompatActivity {
         postId = intent.getStringExtra("pid");
         textType.setText(type);
         Glide.with(this).load(url).into(imagePicture);
+
+        recyclerView = findViewById(R.id.recycler);
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setItemViewCacheSize(100);
+        commentAdapter = new CommentAdapter(this, commentList);
+        commentAdapter.setHasStableIds(true);
+        loadComment();
     }
 
     View.OnClickListener onClickListener = (v) -> {
@@ -83,7 +109,6 @@ public class CommentActivity extends AppCompatActivity {
         //뒤로가기 방지
         customProgressDialog.setCancelable(false);
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        FirebaseFirestore firestore = FirebaseFirestore.getInstance();
         DocumentReference documentReference = firestore.collection("comments").document();
         Comment comment =
                 new Comment(documentReference.getId(), user.getUid(), target, postId, editComment.getText().toString(), url, false, new Date());
@@ -93,8 +118,52 @@ public class CommentActivity extends AppCompatActivity {
                 customProgressDialog.cancel();
                 customProgressDialog.dismiss();
                 Toast.makeText(CommentActivity.this, "업로드 완료", Toast.LENGTH_SHORT).show();
-                finish();
+                commentAdapter.addItem(comment);
+                editComment.setText("");
             }
         });
+    }
+
+    public void loadComment(){
+        commentList.clear();
+        //로딩창
+        customProgressDialog.show();
+        //화면터치 방지
+        customProgressDialog.setCanceledOnTouchOutside(false);
+        //뒤로가기 방지
+        customProgressDialog.setCancelable(false);
+
+        CollectionReference collectionReference = firestore.collection("comments");
+        collectionReference
+                .whereEqualTo("postId", postId)
+                .orderBy("createdAt", Query.Direction.DESCENDING)
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if(task.isSuccessful()){
+                            for(QueryDocumentSnapshot document : task.getResult()){
+                                commentList.add(
+                                        new Comment(
+                                                document.getData().get("cid").toString(),
+                                                document.getData().get("publisher").toString(),
+                                                document.getData().get("target").toString(),
+                                                document.getData().get("postId").toString(),
+                                                document.getData().get("content").toString(),
+                                                document.getData().get("url").toString(),
+                                                (Boolean) document.getData().get("read"),
+                                                new Date(document.getDate("createdAt").getTime())
+                                        )
+                                );
+                            }
+                            recyclerView.setAdapter(commentAdapter);
+                        }
+                        else{
+                            Log.e("CommentError", task.getException().toString());
+                        }
+                        customProgressDialog.cancel();
+                        customProgressDialog.dismiss();
+                    }
+                });
     }
 }
