@@ -13,6 +13,8 @@ import com.gachon.santa_admin.activity.CommentActivity;
 import com.gachon.santa_admin.entity.Galley;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.ArrayList;
 
@@ -60,6 +62,10 @@ public class GridViewAdapter extends BaseAdapter {
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                DocumentReference documentReference = FirebaseFirestore.getInstance()
+                        .collection("paints")
+                        .document(items.get(position).getPid());
+                documentReference.update("read", true);
                 Intent intent = new Intent(context, CommentActivity.class);
                 intent.putExtra("target", items.get(position).getUid());
                 intent.putExtra("type", type);

@@ -8,11 +8,18 @@
     android:orientation="vertical"
     tools:context=".activity.IntroActivity">
 
+    <ImageView
+        android:id="@+id/image_santa"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:gravity="center"
+        android:layout_marginBottom="70dp"
+        android:src="@drawable/admin"/>
+
     <TextView
         android:id="@+id/et_text"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
         android:gravity="center"
         android:text="@string/intro"/>
 
