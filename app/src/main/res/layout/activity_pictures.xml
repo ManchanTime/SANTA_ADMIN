@@ -8,37 +8,90 @@
     android:gravity="center"
     tools:context=".activity.PicturesActivity">
 
-    <Button
-        android:id="@+id/FIGUREbutton"
-        android:layout_width="163dp"
-        android:layout_height="55dp"
-        android:text="FIGURE" />
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="20dp" />
+    <RelativeLayout
+        android:id="@+id/layout_figure"
+        android:layout_width="200dp"
+        android:layout_height="85dp">
 
-    <Button
-        android:id="@+id/LMTbutton"
-        android:layout_width="163dp"
-        android:layout_height="55dp"
-        android:text="LMT" />
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="20dp" />
+        <Button
+            android:id="@+id/btn_figure"
+            android:layout_width="163dp"
+            android:layout_height="55dp"
+            android:layout_centerInParent="true"
+            android:text="FIGURE" />
 
-    <Button
-        android:id="@+id/PITRbutton"
-        android:layout_width="163dp"
-        android:layout_height="55dp"
-        android:text="PITR" />
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="20dp" />
+        <ImageView
+            android:id="@+id/image_figure"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginBottom="60dp"
+            android:src="@drawable/read"
+            android:visibility="gone" />
+    </RelativeLayout>
 
-    <Button
-        android:id="@+id/KHTPbutton"
-        android:layout_width="163dp"
-        android:layout_height="55dp"
-        android:text="K-HTP"/>
+    <RelativeLayout
+        android:id="@+id/layout_lmt"
+        android:layout_width="200dp"
+        android:layout_height="85dp">
+        <Button
+            android:id="@+id/btn_lmt"
+            android:layout_width="163dp"
+            android:layout_height="55dp"
+            android:layout_centerInParent="true"
+            android:text="LMT" />
 
+        <ImageView
+            android:id="@+id/image_lmt"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginBottom="60dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:visibility="gone"
+            android:src="@drawable/read"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/layout_pitr"
+        android:layout_width="200dp"
+        android:layout_height="85dp">
+        <Button
+            android:id="@+id/btn_pitr"
+            android:layout_width="163dp"
+            android:layout_height="55dp"
+            android:layout_centerInParent="true"
+            android:text="PITR" />
+        <ImageView
+            android:id="@+id/image_pitr"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginBottom="60dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:visibility="gone"
+            android:src="@drawable/read"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/layout_hpt"
+        android:layout_width="200dp"
+        android:layout_height="85dp">
+        <Button
+            android:id="@+id/btn_htp"
+            android:layout_width="163dp"
+            android:layout_height="55dp"
+            android:layout_centerInParent="true"
+            android:text="K-HTP" />
+        <ImageView
+            android:id="@+id/image_hpt"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginBottom="60dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:visibility="gone"
+            android:src="@drawable/read"/>
+    </RelativeLayout>
 </LinearLayout>

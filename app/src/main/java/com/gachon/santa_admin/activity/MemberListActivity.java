@@ -109,7 +109,7 @@ public class MemberListActivity extends AppCompatActivity {
                                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                                     UserItem item = (UserItem) adapter.getItem(position);
                                     Toast.makeText(getApplicationContext(), "선택 :" + item.getName(), Toast.LENGTH_LONG).show();
-                                    Intent intent = new Intent(MemberListActivity.this, PicturesActivity.class);
+                                    Intent intent = new Intent(MemberListActivity.this, SelectPicturesActivity.class);
                                     intent.putExtra("uid", item.getUid());
                                     startActivity(intent);
 

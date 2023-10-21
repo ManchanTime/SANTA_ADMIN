@@ -20,7 +20,6 @@ public class UserItemView extends LinearLayout {
     ImageView imageRead;
 
     // Generate > Constructor
-
     public UserItemView(Context context) {
         super(context);
 
@@ -36,12 +35,12 @@ public class UserItemView extends LinearLayout {
     // singer_item.xml을 inflation
     private void init(Context context) {
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        inflater.inflate(R.layout.user_item, this, true);
+        inflater.inflate(R.layout.item_user, this, true);
 
-        text_info1 = (TextView) findViewById(R.id.text_info1);
-        text_info2 = (TextView) findViewById(R.id.text_info2);
-        text_info3 = (TextView) findViewById(R.id.text_info3);
-        imageView = (ImageView) findViewById(R.id.imageView);
+        text_info1 = findViewById(R.id.text_info1);
+        text_info2 = findViewById(R.id.text_info2);
+        text_info3 = findViewById(R.id.text_info3);
+        imageView = findViewById(R.id.imageView);
         imageRead = findViewById(R.id.image_read);
     }
 

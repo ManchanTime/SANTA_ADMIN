@@ -17,6 +17,7 @@
         <entry key="..\:/Users/lych0/AndroidStudioProjects/SANTA_ADMIN/app/src/main/res/layout/activity_comment.xml" value="0.24947916666666667" />
         <entry key="..\:/Users/lych0/AndroidStudioProjects/SANTA_ADMIN/app/src/main/res/layout/activity_figure.xml" value="0.24947916666666667" />
         <entry key="..\:/Users/lych0/AndroidStudioProjects/SANTA_ADMIN/app/src/main/res/layout/activity_grid_view.xml" value="0.24947916666666667" />
+        <entry key="..\:/Users/lych0/AndroidStudioProjects/SANTA_ADMIN/app/src/main/res/layout/activity_image.xml" value="0.24947916666666667" />
         <entry key="..\:/Users/lych0/AndroidStudioProjects/SANTA_ADMIN/app/src/main/res/layout/activity_intro.xml" value="0.24947916666666667" />
         <entry key="..\:/Users/lych0/AndroidStudioProjects/SANTA_ADMIN/app/src/main/res/layout/activity_khtp.xml" value="0.24947916666666667" />
         <entry key="..\:/Users/lych0/AndroidStudioProjects/SANTA_ADMIN/app/src/main/res/layout/activity_lmt.xml" value="0.24947916666666667" />
@@ -26,7 +27,7 @@
         <entry key="..\:/Users/lych0/AndroidStudioProjects/SANTA_ADMIN/app/src/main/res/layout/activity_pictures.xml" value="0.24947916666666667" />
         <entry key="..\:/Users/lych0/AndroidStudioProjects/SANTA_ADMIN/app/src/main/res/layout/activity_pitr.xml" value="0.24947916666666667" />
         <entry key="..\:/Users/lych0/AndroidStudioProjects/SANTA_ADMIN/app/src/main/res/layout/activity_register.xml" value="0.24947916666666667" />
-        <entry key="..\:/Users/lych0/AndroidStudioProjects/SANTA_ADMIN/app/src/main/res/layout/activity_select_pictures.xml" value="0.24947916666666667" />
+        <entry key="..\:/Users/lych0/AndroidStudioProjects/SANTA_ADMIN/app/src/main/res/layout/activity_select_pictures.xml" value="0.2" />
         <entry key="..\:/Users/lych0/AndroidStudioProjects/SANTA_ADMIN/app/src/main/res/layout/activity_user_item.xml" value="0.24947916666666667" />
         <entry key="..\:/Users/lych0/AndroidStudioProjects/SANTA_ADMIN/app/src/main/res/layout/activity_user_item_view.xml" value="0.24947916666666667" />
         <entry key="..\:/Users/lych0/AndroidStudioProjects/SANTA_ADMIN/app/src/main/res/layout/dialog_confirm.xml" value="0.24947916666666667" />
@@ -35,6 +36,10 @@
         <entry key="..\:/Users/lych0/AndroidStudioProjects/SANTA_ADMIN/app/src/main/res/layout/fragment_second.xml" value="0.24947916666666667" />
         <entry key="..\:/Users/lych0/AndroidStudioProjects/SANTA_ADMIN/app/src/main/res/layout/gridview_list_item.xml" value="0.24947916666666667" />
         <entry key="..\:/Users/lych0/AndroidStudioProjects/SANTA_ADMIN/app/src/main/res/layout/item_comment.xml" value="0.24947916666666667" />
+        <entry key="..\:/Users/lych0/AndroidStudioProjects/SANTA_ADMIN/app/src/main/res/layout/item_picture.xml" value="0.24947916666666667" />
+        <entry key="..\:/Users/lych0/AndroidStudioProjects/SANTA_ADMIN/app/src/main/res/layout/item_spinner.xml" value="0.24947916666666667" />
+        <entry key="..\:/Users/lych0/AndroidStudioProjects/SANTA_ADMIN/app/src/main/res/layout/item_user.xml" value="0.24947916666666667" />
+        <entry key="..\:/Users/lych0/AndroidStudioProjects/SANTA_ADMIN/app/src/main/res/layout/user_item.xml" value="0.24947916666666667" />
       </map>
     </option>
   </component>

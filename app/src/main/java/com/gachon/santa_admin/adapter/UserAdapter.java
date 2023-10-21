@@ -80,7 +80,6 @@ public class UserAdapter extends BaseAdapter {
     public void setNotification(String user, UserItemView view){
         FirebaseFirestore firebaseFirestore = FirebaseFirestore.getInstance();
         CollectionReference chatRef = firebaseFirestore.collection("paints");
-        //채팅방이름으로 된 컬렉션에 저장되어 있는 데이터들 읽어오기
         //chatRef의 데이터가 변경될때마다 반응하는 리스너 달기 : get()은 일회용
         chatRef.addSnapshotListener(new EventListener<QuerySnapshot>() { //데이터가 바뀔떄마다 찍음
             @Override

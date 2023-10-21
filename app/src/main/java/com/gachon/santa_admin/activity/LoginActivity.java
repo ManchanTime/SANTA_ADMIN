@@ -77,47 +77,48 @@ public class LoginActivity extends AppCompatActivity {
 
         FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();//데이터베이스의 인스턴스를 가져온다. (즉, root를 가져온다.)
 
-        firebaseAuth.signInWithEmailAndPassword(email, pwd)//메일이랑 패스워드를 참조
-                .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if(task.isSuccessful()){
-                            FirebaseFirestore firestore = FirebaseFirestore.getInstance();
+        if(pwd != null && pwd != email) {
+            firebaseAuth.signInWithEmailAndPassword(email, pwd)//메일이랑 패스워드를 참조
+                    .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            if (task.isSuccessful()) {
+                                FirebaseFirestore firestore = FirebaseFirestore.getInstance();
 
-                            FirebaseUser user = firebaseAuth.getCurrentUser();
-                            assert user != null;
-                            DocumentReference documentReference = firestore.collection("users")
-                                    .document(user.getUid());
-                            documentReference.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-                                @Override
-                                public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                                    customProgressDialog.cancel();
-                                    customProgressDialog.dismiss();
-                                    if(task.isSuccessful()){
-                                        String type = task.getResult().getData().get("type").toString();
-                                        if(type.equals("admin")){
-                                            Intent intent = new Intent(LoginActivity.this, IntroActivity.class);
-                                            startActivity(intent);
-                                            Toast.makeText(LoginActivity.this, "환영합니다!!", Toast.LENGTH_SHORT).show();
-                                            finish();
-                                        }
-                                        else{
-                                            Toast.makeText(LoginActivity.this, "아이디와 비밀번호를 확인해주세요.", Toast.LENGTH_SHORT).show();
+                                FirebaseUser user = firebaseAuth.getCurrentUser();
+                                assert user != null;
+                                DocumentReference documentReference = firestore.collection("users")
+                                        .document(user.getUid());
+                                documentReference.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                                        customProgressDialog.cancel();
+                                        customProgressDialog.dismiss();
+                                        if (task.isSuccessful()) {
+                                            String type = task.getResult().getData().get("type").toString();
+                                            if (type.equals("admin")) {
+                                                Intent intent = new Intent(LoginActivity.this, IntroActivity.class);
+                                                startActivity(intent);
+                                                Toast.makeText(LoginActivity.this, "환영합니다!!", Toast.LENGTH_SHORT).show();
+                                                finish();
+                                            } else {
+                                                Toast.makeText(LoginActivity.this, "아이디와 비밀번호를 확인해주세요.", Toast.LENGTH_SHORT).show();
+                                            }
+                                        } else {
+                                            Log.e("error", task.getException().toString());
                                         }
                                     }
-                                    else{
-                                        Log.e("error", task.getException().toString());
-                                    }
-                                }
-                            });
-
-
+                                });
+                            } else {
+                                Toast.makeText(LoginActivity.this, "아이디와 비밀번호를 확인해주세요.", Toast.LENGTH_SHORT).show();
+                                Log.e("error", task.getException() + "");
+                            }
+                            customProgressDialog.cancel();
+                            customProgressDialog.dismiss();
                         }
-                        else
-                            Toast.makeText(LoginActivity.this, "아이디와 비밀번호를 확인해주세요.", Toast.LENGTH_SHORT).show();
-                        customProgressDialog.cancel();
-                        customProgressDialog.dismiss();
-                    }
-                });
+                    });
+        }else{
+            Toast.makeText(LoginActivity.this, "아이디와 비밀번호를 입력해주세요.", Toast.LENGTH_SHORT).show();
+        }
     }
 }

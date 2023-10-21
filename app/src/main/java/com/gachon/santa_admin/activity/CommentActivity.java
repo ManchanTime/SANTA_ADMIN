@@ -14,6 +14,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -22,6 +23,7 @@ import com.gachon.santa_admin.R;
 import com.gachon.santa_admin.adapter.CommentAdapter;
 import com.gachon.santa_admin.dialog.ProgressDialog;
 import com.gachon.santa_admin.entity.Comment;
+import com.github.chrisbanes.photoview.PhotoView;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
@@ -42,12 +44,13 @@ import java.util.List;
 
 public class CommentActivity extends AppCompatActivity {
 
-    private ImageView imagePicture;
+    private PhotoView imagePicture;
     private EditText editComment;
     private Button btnSend;
     private String target, type, url, postId;
     private TextView textType;
 
+    private RelativeLayout layoutNoSearch;
     private RecyclerView recyclerView;
     private CommentAdapter commentAdapter;
     private ArrayList<Comment> commentList = new ArrayList<>();
@@ -67,10 +70,12 @@ public class CommentActivity extends AppCompatActivity {
         firestore = FirebaseFirestore.getInstance();
 
         imagePicture = findViewById(R.id.image_picture);
+        imagePicture.setOnClickListener(onClickListener);
         editComment = findViewById(R.id.edit_comment);
         btnSend = findViewById(R.id.btn_send);
         btnSend.setOnClickListener(onClickListener);
         textType = findViewById(R.id.text_type);
+        layoutNoSearch = findViewById(R.id.layout_no_search);
 
         Intent intent = getIntent();
         target = intent.getStringExtra("target");
@@ -97,6 +102,11 @@ public class CommentActivity extends AppCompatActivity {
                 }
                 else
                     sendComment();
+                break;
+            case R.id.image_picture:
+                Intent intent = new Intent(this, ImageActivity.class);
+                intent.putExtra("image", url);
+                startActivity(intent);
                 break;
         }
     };
@@ -156,6 +166,10 @@ public class CommentActivity extends AppCompatActivity {
                                         )
                                 );
                             }
+                            if(commentList.isEmpty()){
+                                layoutNoSearch.setVisibility(View.VISIBLE);
+                            }else
+                                layoutNoSearch.setVisibility(View.GONE);
                             recyclerView.setAdapter(commentAdapter);
                         }
                         else{

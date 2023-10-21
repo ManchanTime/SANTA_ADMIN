@@ -6,12 +6,14 @@ public class Galley {
     private String uid;
     private String pid;
     private String url;
+    private Boolean read;
     private Date createdAt;
 
-    public Galley(String uid, String pid, String url, Date createdAt) {
+    public Galley(String uid, String pid, String url, Boolean read, Date createdAt) {
         this.uid = uid;
         this.pid = pid;
         this.url = url;
+        this.read = read;
         this.createdAt = createdAt;
     }
 
@@ -25,6 +27,14 @@ public class Galley {
 
     public String getPid() {
         return pid;
+    }
+
+    public Boolean getRead() {
+        return read;
+    }
+
+    public void setRead(Boolean read) {
+        this.read = read;
     }
 
     public void setPid(String pid) {
